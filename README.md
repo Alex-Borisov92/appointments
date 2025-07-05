@@ -25,8 +25,8 @@ curl -X POST http://localhost:8000/appointments \
      -H "Content-Type: application/json" \
      -d '{"doctor_id": 1, "patient_name": "Demo", "start_time": "2030-01-01T09:00:00"}'
 
-Swagger-UI: [http://localhost:8000/docs](http://localhost:8000/docs)
-ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+Swagger-UI: http://localhost:8000/docs
+ReDoc: http://localhost:8000/redoc
 ```
 ---
 
