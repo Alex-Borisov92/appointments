@@ -1,4 +1,3 @@
-````markdown
 # Appointments Service
 
 Микросервис записи пациентов на приём. Реализован на FastAPI, использует PostgreSQL в проде и SQLite in-memory в тестах. Врачу гарантируется уникальность пары `doctor_id + start_time`.
@@ -25,7 +24,6 @@ curl http://localhost:8000/health        # → {"status":"OK"}
 curl -X POST http://localhost:8000/appointments \
      -H "Content-Type: application/json" \
      -d '{"doctor_id": 1, "patient_name": "Demo", "start_time": "2030-01-01T09:00:00"}'
-````
 
 Swagger-UI: [http://localhost:8000/docs](http://localhost:8000/docs)
 ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
