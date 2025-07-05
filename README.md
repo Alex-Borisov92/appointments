@@ -27,7 +27,7 @@ curl -X POST http://localhost:8000/appointments \
 
 Swagger-UI: [http://localhost:8000/docs](http://localhost:8000/docs)
 ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
-
+```
 ---
 
 ## Полезные команды Make
