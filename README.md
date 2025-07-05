@@ -84,7 +84,7 @@ github actions: 7
 sql: 7
 ai code: 6
 biz integration: 8
-english: yes
+english: 9
 tasks: scrum
 ```
 
