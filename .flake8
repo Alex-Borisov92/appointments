@@ -1,0 +1,7 @@
+[flake8]
+# длина строки как у black
+max-line-length = 88
+# игнорируем конфликты с black
+extend-ignore = E203, W503
+# не проверяем виртуалки и сборки
+exclude = .venv,build,dist

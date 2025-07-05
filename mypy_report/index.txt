@@ -1,0 +1,17 @@
+Mypy Type Check Coverage Summary
+================================
+
+Script: index
+
++--------------------------+-------------------+---------+
+| Module                   | Imprecision       | Lines   |
++--------------------------+-------------------+---------+
+| app                      |   0.00% imprecise |   1 LOC |
+| app.db                   |   1.89% imprecise |  53 LOC |
+| app.main                 |   0.00% imprecise |  21 LOC |
+| app.models               |  20.00% imprecise |  20 LOC |
+| app.routers.appointments |  17.07% imprecise |  41 LOC |
+| app.schemas              |  16.67% imprecise |  24 LOC |
++--------------------------+-------------------+---------+
+| Total                    |  10.00% imprecise | 160 LOC |
++--------------------------+-------------------+---------+
