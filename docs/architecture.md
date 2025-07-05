@@ -1,21 +1,28 @@
-<!-- docs/architecture.md -->
-
 # Архитектурная схема «Appointments Service»
 
 ```mermaid
 flowchart TD
-    subgraph FastAPI App [FastAPI приложение]
+    %% === Слой приложения (FastAPI) ===
+    subgraph fastapi["FastAPI приложение"]
         direction TB
-        A1[main.py<br/>— точка входа<br/>— FastAPI() + роуты] --> A2
-        A2[routers/appointments.py<br/>— POST/GET эндпойнты] --> A3
-        A3[schemas.py<br/>— Pydantic<br/>Request / Response] --> A4
-        A2 --> A4
-        A4[models.py<br/>— SQLAlchemy ORM<br/>Appointment] --> A5
-        A5[db.py<br/>— engine / SessionLocal<br/>Base.metadata.create_all]
+        A1([main.py<br/>- точка входа]) --> A2[routers/appointments.py<br/>POST + GET]
+        A2 --> A3[schemas.py<br/>Request ↔ Response]
+        A3 --> A4[models.py<br/>SQLAlchemy ORM <Appointment>]
+        A4 --> A5[db.py<br/>engine / SessionLocal]
     end
 
-    FastAPI App -->|SQLAlchemy Session| PG[(PostgreSQL DB<br/>appointments table)]
-    PG -->|Unique index<br/>doctor_id+start_time| PG
+    %% === Слой данных ===
+    subgraph pg["PostgreSQL DB"]
+        D[(appointments<br/>UNIQUE doctor_id + start_time)]
+    end
 
-    style PG fill:#f3f9ff,stroke:#3b82f6,stroke-width:2px
-    style FastAPI App fill:#fff9f0,stroke:#f97316,stroke-width:2px
+    %% === Связи между слоями ===
+    fastapi -->|SQLAlchemy Session| D
+
+    %% === Стили ===
+    classDef box fill:#f9f9ff,stroke:#4973b6,stroke-width:2px;
+    classDef db fill:#f3f9ff,stroke:#3b82f6,stroke-width:2px;
+
+    class fastapi box;
+    class pg db;
+````
