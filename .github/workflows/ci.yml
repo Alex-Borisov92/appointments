@@ -10,9 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # ---------------------------------------------------------
-    # Сервисный контейнер Postgres доступен как localhost:5432
-    # ---------------------------------------------------------
     services:
       db:
         image: postgres:15-alpine
@@ -57,7 +54,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_TOKEN }}
+          password: ${{ secrets.GHCR_TOKEN }}   # PAT со scope write:packages
 
       - name: Build and push image
         if: github.ref == 'refs/heads/main'
@@ -65,4 +62,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ toLower(github.repository) }}:latest
+          tags: ghcr.io/alex-borisov92/appointments:latest
