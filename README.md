@@ -8,7 +8,7 @@
 
 ```bash
 # 1. клонируем
-git clone https://github.com/your-org/appointments.git
+git clone https://github.com/Alex-Borisov92/appointments.git
 cd appointments
 
 # 2. настраиваем переменные окружения
